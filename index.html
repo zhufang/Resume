@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Personal resume</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <!--my logo-->
+    <link rel="shortcut icon" href="img/net.ico">
+    <!--需要引入的css文件-->
+    <link rel="stylesheet" href="css/reset.min.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <!--自适应 px转为rem-->
+    <script>
+        var desW = 640;
+        var winW = document.documentElement.clientWidth;//设备的宽度
+        document.documentElement.style.fontSize = winW / desW * 100 + 'px';//公式
+    </script>
+</head>
+<body>
+<section class="main">
+    <!--这个span是往上滑的图标-->
+    <span id="span"></span>
+    <div class="music">
+        <audio src="audio/Valentin%20-%20A%20Little%20Story.mp3" loop preload="none" id="beyond"></audio>
+    </div>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <!--第一页-->
+            <div class="swiper-slide slide1">
+                <h1>个人简历</h1>
+            </div>
+            <!--第二页-->
+            <div class="swiper-slide slide2">
+                <!--左边-->
+                <dl>
+                    <dt></dt>
+                    <dd>朱芳芳</dd>
+                </dl>
+                <!--右边-->
+                <div>
+                    <ul>
+                        <li><span>毕业院校</span><br/><span>郑州交通学院</span></li>
+                        <li><span>专业</span><br/><span>信息工程</span></li>
+                        <li><span>所在地</span><br/><span>北京</span></li>
+                        <li><span>学历</span><br/><span>专科</span></li>
+                    </ul>
+                </div>
+                <!--中间的竖线-->
+                <p></p>
+            </div>
+            <!--第三页-->
+            <div class="swiper-slide slide3">
+                <div>
+                    <span>01</span>
+                    <a href="javascript:;">专业技能</a>
+                    <a href="javascript:;"></a>
+                    <!--上面这个a是中间的横线-->
+                    <a href="javascript:;">SKILL</a>
+                </div>
+                <p class="p1"><span>JS</span><span>熟练掌握</span></p>
+                <p class="p2"><span>熟练掌握</span><span>H5</span></p>
+                <p class="p3"><span>CSS3</span><span>熟练掌握</span></p>
+                <p class="p4"><span>熟练掌握</span><span>Swiper</span></p>
+
+            </div>
+            <!--第四页-->
+            <div class="swiper-slide slide4">
+                <div>
+                    <span>02</span>
+                    <a href="">SPARE</a>
+                    <a href=""></a>
+                    <!--上面a是竖线-->
+                    <a href="">业余</a>
+                </div>
+                <p class="f1">
+                    <span></span>
+                    <span>看书</span>
+                </p>
+                <p class="f2">
+                    <span></span>
+                    <span>旅行</span>
+                </p>
+                <p class="f3">
+                    <span></span>
+                    <span>运动</span>
+                </p>
+            </div>
+            <!--第五页-->
+            <div class="swiper-slide slide5">
+                <div>
+                    <span>03</span>
+                    <a href="javascript:;">联系方式</a>
+                    <a href="javascript:;"></a>
+                    <a href="javascript:;">CONTACT</a>
+                </div>
+                <!--二维码-->
+                <p></p>
+                <p><a href="javascript:;"></a><span>13673676035</span></p>
+                <p><a href="javascript:;"></a><span>1256074932</span></p>
+                <p><a href="javascript:;"></a><span>13673676035</span></p>
+                <p>简历100%属实</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="bg"></section>
+<script src="js/swiper.min.js"></script>
+<script>
+    var mySelf = new Swiper('.swiper-container', {
+        direction: 'vertical',
+        loop: true,
+        onTransitionEnd: function (swiper) {
+            var slides = swiper.slides;
+            var curIndex = swiper.activeIndex;
+            var lastIndexSlide = slides.length - 1;
+            var trueIndexSlide = slides.length - 2;
+            [].forEach.call(slides, function (item, index) {
+                item.id = "";
+                if (curIndex == index) {
+                    switch (index) {
+                        case 0:
+                            item.id = "page" + trueIndexSlide;
+                            break;
+                        case lastIndexSlide:
+                            item.id = "page1";
+                            break;
+                        default:
+                            item.id = "page" + curIndex;
+                            break;
+                    }
+                }
+            });
+        }
+
+    });
+    //音频处理
+    var music = document.querySelector('.music');
+    var beyond = document.querySelector('#beyond');
+    var oSpan = document.querySelector('#span');
+    window.setTimeout(function () {
+        beyond.play();
+        beyond.addEventListener('canplay', function () {
+            music.className = 'music musicCur';
+        });
+        oSpan.className = 'upDay';
+    }, 1000);
+    //通过paused这个属性判断音频文件是播放的还是停止的 beyond.paused=true,说明音频文件目前是停止播放
+    //让音频文件播放play(),让音频文件停止是pause()方法
+    music.addEventListener('click', function () {
+        if (beyond.paused) {
+            beyond.play();
+            music.className = 'music musicCur';
+        } else {
+            beyond.pause();
+            music.className = 'music';
+            music.style.opacity = 1;
+        }
+    }, false)
+</script>
+</body>
+</html>
