@@ -604,6 +604,9 @@ body {
     top: 1.2rem;
     left: 0.9rem;
 }
+#page5 p{
+    color: #cecfcf;
+}
 
 #page5 p:nth-of-type(1) {
     width: 2.4rem;
