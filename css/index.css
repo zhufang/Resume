@@ -604,10 +604,6 @@ body {
     top: 1.2rem;
     left: 0.9rem;
 }
-#page5 p{
-    color: #cecfcf;
-}
-
 #page5 p:nth-of-type(1) {
     width: 2.4rem;
     height: 0.6rem;
@@ -630,7 +626,7 @@ body {
 
 #page5 p:nth-of-type(1) span {
     font-size: 0.25rem;
-    color: #cecfcf;
+    color: silver;
 }
 
 #page5 p:nth-of-type(2) {
@@ -655,7 +651,7 @@ body {
 
 #page5 p:nth-of-type(2) span {
     font-size: 0.25rem;
-    color: #cecfcf;
+    color: silver;
 }
 #page5 p:nth-of-type(3) {
     width: 2.4rem;
@@ -679,13 +675,13 @@ body {
 
 #page5 p:nth-of-type(3) span {
     font-size: 0.25rem;
-    color: #cecfcf;
+    color: silver;
 }
 
 #page5 p:nth-of-type(4){
     position: absolute;
     font-size: 0.25rem;
-    color: #cecfcf;
+    color: silver;
     top: 6.7rem;
     left: 50%;
     margin-left: -0.8rem;
